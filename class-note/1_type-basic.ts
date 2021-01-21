@@ -14,3 +14,21 @@ let items: number[] = [1, 2, 3];
 
 let strNumArr1: Array<string | number> = ["a", 1, 2];
 let strNumArr2: (string | number)[] = ["a", 1, 2];
+
+// TS 튜플 : 배열 각 요소에 타입 지정
+let address: [string, number] = ["gangnam", 100];
+
+// TS 객체
+let obj: object = {};
+// let person: object = {
+//   name: "capt",
+//   age: 100,
+// };
+
+let person: { name: string; age: number } = {
+  name: "thor",
+  age: 1000,
+};
+
+// TS 진위값
+let show: boolean = true;
