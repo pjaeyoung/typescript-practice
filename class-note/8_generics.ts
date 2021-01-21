@@ -49,3 +49,37 @@ interface DropDown<T> {
 
 const obj: DropDown<string> = { value: "abc", selected: false };
 const obj2: DropDown<number> = { value: 10, selected: false };
+
+// 제네릭의 타입 제한 1
+function logTextLength<T>(text: T[]): number {
+  return text.length;
+}
+
+logTextLength<string>(["hi", "abc"]);
+
+// 제네릭의 타입 제한 2 - 정의된 타입 이용하기
+interface LengthType {
+  length: number;
+}
+
+function logTextLength2<T extends LengthType>(text: T): number {
+  return text.length;
+}
+
+logTextGeneric<string>("hello");
+logTextLength2<number[]>([1, 2, 3]);
+
+// 제네릭의 타입 제한 3 - keyof
+interface ShoppingItem {
+  name: string;
+  price: number;
+  stock: number;
+}
+
+function getShoppingItemOption<T extends keyof ShoppingItem>(itemOption: T): T {
+  return itemOption;
+}
+
+getShoppingItemOption("name");
+getShoppingItemOption("price");
+getShoppingItemOption("stock");
