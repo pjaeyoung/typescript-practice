@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "allowJs": true, // javascript 파일 사용 허용
+    "checkJs": true, // @ts-check 사용 허용
+    "noImplicitAny": true // 타입 반드시 지정
+  }
+}
