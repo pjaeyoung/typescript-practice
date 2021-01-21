@@ -11,3 +11,13 @@ class Person {
 
 var seho = new Person("세호", 30); // 생성 되었습니다.
 console.log(seho);
+
+// 프로토타입 설명
+var user = { name: "capt", age: 100 };
+var admin = {};
+admin.__proto__ = user;
+admin.role = "admin";
+console.log(admin.name); // capt
+
+var obj = { a: 10 };
+obj.hasOwnProperty("a"); // hasOwnProperty는 Object 프로퍼티에서 제공하는 메서드 ( Build in Javascript )
