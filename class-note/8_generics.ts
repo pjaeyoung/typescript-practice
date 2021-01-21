@@ -40,3 +40,12 @@ const str = logTextGeneric<string>("하이");
 str.split("");
 
 const login = logTextGeneric<boolean>(true);
+
+// 인터페이스에 제네릭 선언하는 방법
+interface DropDown<T> {
+  value: T;
+  selected: boolean;
+}
+
+const obj: DropDown<string> = { value: "abc", selected: false };
+const obj2: DropDown<number> = { value: 10, selected: false };
