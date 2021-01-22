@@ -53,3 +53,6 @@ var detailedItem: DetailedDropDown<number> = {
   value: 10,
   tag: 1,
 };
+
+// Best Common Type : 자바스크립트 코드가 어떤 타입인지 추론하는 알고리즘, union으로 타입을 묶어 나감
+var arr = [1, 2, true, false, "abc"];
