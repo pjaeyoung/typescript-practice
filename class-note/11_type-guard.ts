@@ -13,7 +13,7 @@ function introduce(): Developer | Person {
 }
 
 var tony = introduce();
-console.log(tony.skill); // union 타입의 특성에 따라 공통된 속성인 name만 접근 가능
+console.log(tony.skill); // error : union 타입의 특성에 따라 공통된 속성인 name만 접근 가능
 
 // 타입단언으로 타입의 범위를 좁히기, 구체화하기
 // 가독성이 좋지 않음
@@ -35,4 +35,33 @@ if (isDeveloper(tony)) {
   console.log(tony.skill);
 } else {
   console.log(tony.age);
+}
+
+interface Designer {
+  name: string;
+  awardCount: number;
+}
+
+function introduce2(): Developer | Person | Designer {
+  return { name: "mari", age: 33, skill: "Iron making", awardCount: 20 }; // 코드 상에서 모든 속성을 정의했음에도 불구하고
+}
+
+var mari = introduce2();
+
+function isDesigner(target: Developer | Person | Designer): target is Designer {
+  return (target as Designer).awardCount !== undefined;
+}
+
+if (isDesigner(tony)) {
+  console.log(tony.awardCount);
+} else {
+  console.log(tony.name); // Designer를 제외한 두 타입(Developer, Person)의 공통 속성만 접근 가능
+}
+
+if (isDeveloper(tony)) {
+  console.log(tony.skill);
+} else if (isDesigner(tony)) {
+  console.log(tony.awardCount);
+} else {
+  console.log(tony.name);
 }
