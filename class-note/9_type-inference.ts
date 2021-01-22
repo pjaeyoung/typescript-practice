@@ -31,3 +31,25 @@ var shoppingItem: DropDown<string> = {
   value: "abc", // Dropdown<string>.value : string 추론
   title: "hello",
 };
+
+// 타입 추론 기본 3
+// 제네릭을 확장한 제네릭 인터페이스로 타입의 경우
+// 호출시점에서 타입이 확장 제네릭 인터페이스에도 전달되는 형태
+interface DetailedDropDown<K> extends DropDown<K> {
+  description: string;
+  tag: K;
+}
+
+var detailedItem: DetailedDropDown<string> = {
+  title: "ab",
+  description: "abc",
+  value: "",
+  tag: "",
+};
+
+var detailedItem: DetailedDropDown<number> = {
+  title: "ab",
+  description: "abc",
+  value: 10,
+  tag: 1,
+};
